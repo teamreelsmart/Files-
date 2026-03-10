@@ -11,7 +11,7 @@ from pyrogram.errors.exceptions.bad_request_400 import UserNotParticipant
 from pyrogram.errors import FloodWait
 from shortzy import Shortzy
 from datetime import datetime
-from database.database import user_data, db_verify_status, db_update_verify_status
+from database.database import db_verify_status, db_update_verify_status
 
 async def is_subscribed(filter, client, update):
     if not (FORCESUB_CHANNEL or FORCESUB_CHANNEL2 or FORCESUB_CHANNEL3):
@@ -101,12 +101,9 @@ async def get_verify_status(user_id):
     verify = await db_verify_status(user_id)
     return verify
 
-async def update_verify_status(user_id, verify_token="", is_verified=False, verified_time=0, link=""):
+async def update_verify_status(user_id, **kwargs):
     current = await db_verify_status(user_id)
-    current['verify_token'] = verify_token
-    current['is_verified'] = is_verified
-    current['verified_time'] = verified_time
-    current['link'] = link
+    current.update(kwargs)
     await db_update_verify_status(user_id, current)
 
 async def get_shortlink(url, api, link):

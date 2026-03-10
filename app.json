@@ -17,7 +17,7 @@
       "description": "An integer of consisting of your owner ID",
       "value": "1250450587"
     },
-    "APP_ID":{
+    "APP_ID": {
       "description": "your app id, take it from my.telegram.org",
       "value": ""
     },
@@ -25,29 +25,29 @@
       "description": "Paste your mongo db url",
       "value": "url"
     },
-    "DATABASE_NAME":{
+    "DATABASE_NAME": {
       "description": "Enter your DATABASE_NAME ",
       "value": "filesharexbot"
     },
-    "API_HASH":{
+    "API_HASH": {
       "description": "your api hash, take it from my.telegram.org",
       "value": ""
     },
-    "CHANNEL_ID":{
+    "CHANNEL_ID": {
       "description": "make a channel (database channel), then make the bot as admin in channel, and it's id",
       "value": "-100"
     },
-    "FORCESUB_CHANNEL":{
+    "FORCESUB_CHANNEL": {
       "description": "id of the first channel, if you want enable force sub feature else put 0",
       "value": "0"
-     },
-    "FORCESUB_CHANNEL2":{
+    },
+    "FORCESUB_CHANNEL2": {
       "description": "id of the second channel, if you want enable force sub feature else put 0",
-      "value": "0"  
-      },
-    "FORCESUB_CHANNEL3":{
+      "value": "0"
+    },
+    "FORCESUB_CHANNEL3": {
       "description": "id of your group, if you want enable force sub feature else put 0",
-      "value": "0" 
+      "value": "0"
     },
     "START_MSG": {
       "description": "Optional: start message of bot, use HTML parsemode format",
@@ -66,6 +66,33 @@
       "description": "Protect contents doesn't forward else False",
       "value": "False",
       "required": false
+    },
+    "SERVICE_BASE_URL": {
+      "description": "Public base URL of your service (Render URL)",
+      "value": "https://service-name.onrender.com"
+    },
+    "VERIFY_MIN_TIME": {
+      "description": "Minimum wait window in seconds before verification is accepted",
+      "value": "120"
+    },
+    "LOG_CHANNEL_ID": {
+      "description": "Channel ID where verification logs will be posted",
+      "value": "0"
+    },
+    "WARNING_IMAGE_URL": {
+      "description": "Optional warning image URL sent with first warning",
+      "value": "",
+      "required": false
+    },
+    "FIRST_WARNING_TEXT": {
+      "description": "Custom first warning message",
+      "value": "⚠️ Verification suspicious activity detected. This is your first warning.",
+      "required": false
+    },
+    "SECOND_WARNING_TEXT": {
+      "description": "Custom second warning/ban message",
+      "value": "🚫 You are banned from using this bot due to repeated verification bypass attempts. Contact admin.",
+      "required": false
     }
   },
   "buildpacks": [
@@ -80,4 +107,3 @@
     }
   }
 }
-
