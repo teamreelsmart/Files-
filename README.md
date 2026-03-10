@@ -45,6 +45,10 @@ Click the button below to deploy the bot on Heroku:
 
 For a detailed deployment guide, watch [this tutorial video](https://youtu.be/7jBbBL9t9jI?si=j52MwTn41TXsc76l).
 
+### Deploy on Render
+
+Use `render.yaml` in this repo. Set all required environment variables in Render dashboard, especially `SERVICE_BASE_URL` as your Render service URL (example `https://service-name.onrender.com`).
+
 ### Deploy on Railway
 
 [![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/new/template/1jKLr4)
@@ -64,6 +68,17 @@ pip3 install -r requirements.txt
 # <Create config.py appropriately>
 python3 main.py
 ````
+
+
+### New Verification Flow
+
+- User gets a verification URL like `https://service-name.onrender.com/verify/<token>`.
+- Verification page shows loading state for 3 seconds and then redirects user to ad shortlink.
+- Minimum wait time is controlled by `VERIFY_MIN_TIME` (example `120` seconds).
+- If user attempts verification before timer window:
+  - 1st time: warning message (with optional image) and log channel entry.
+  - 2nd time: auto-ban + log entry + ban notice to user.
+- Every successful verification is logged in `LOG_CHANNEL_ID`.
 
 ### 🔧 Admin Commands
 
@@ -104,6 +119,12 @@ stats - checking your bot uptime
 * `SHORTLINK_URL` = Your shortner Url ( ex. "api.shareus.io")
 * `SHORTLINK_API` = Your shortner API (ex. "PUIAQBIFrydvLhIzAOeGV8yZppu2")
 * `VERIFY_EXPIRE` = ( ex. 86400)) # Add time in seconds
+* `SERVICE_BASE_URL` = your Render service URL (example: `https://service-name.onrender.com`)
+* `VERIFY_MIN_TIME` = minimum seconds required before verification can complete (example: `120`)
+* `LOG_CHANNEL_ID` = log channel id for warnings/success logs
+* `WARNING_IMAGE_URL` = optional image URL sent with warning
+* `FIRST_WARNING_TEXT` = custom first warning text
+* `SECOND_WARNING_TEXT` = custom second warning/ban text
 
 ### Extra Variables
 
